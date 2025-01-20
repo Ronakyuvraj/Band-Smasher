@@ -12,6 +12,7 @@ function handleClick() {
     var buttonInnerHtml = this.innerHTML;
 
     keyPress(buttonInnerHtml);
+    buttonAnimation(buttonInnerHtml);
 
 
     // this.style.color = "";
@@ -21,6 +22,7 @@ function handleClick() {
 document.addEventListener("keypress",function(event){
    
     keyPress(event.key);
+    buttonAnimation(event.key);
 });
 function keyPress(key){
 
@@ -72,3 +74,13 @@ function keyPress(key){
 
 }
 
+function buttonAnimation(currentKey){
+
+  var  activeButton =  document.querySelector("."+currentKey);
+  activeButton.classList.add("pressed");
+    setTimeout(function(){
+        activeButton.classList.remove("pressed");
+    },100);
+
+
+}
